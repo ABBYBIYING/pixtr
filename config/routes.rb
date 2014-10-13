@@ -1,14 +1,25 @@
 Rails.application.routes.draw do
 
-  resource :session, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create]
-  
-  resources :galleries do
-
-  resources :images  
-end
-
   root "galleries#index" 
+
+  get "/sign up" => "user#new"
+  get "/sign in" => "sessions#new"
+  delete "/sign_out" => "sessions#destroy"
+
+
+  resources :galleries do
+    resources :images  
+  end
+
+  resources :image, only: [] do
+    resources :comments, only: [:create]
+  end
+  
+
+  resource :session, only: [:create]
+  resources :users, only: [:create]
+  resources :comment, only: [:create]
+
 
   # get "/galleries" => "galleries#index"
 

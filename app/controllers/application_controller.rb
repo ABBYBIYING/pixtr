@@ -1,11 +1,6 @@
 class ApplicationController < ActionController::Base
   include Monban::ControllerHelpers
-  def current_user
-    
-    if session[:user_id]
-    user.find(session[:user_id])
-  end
-  helper_method: :current_user
+
   # include Monban::ControllerHelpers 
 
   # Prevent CSRF attacks by raising an exception.

@@ -1,27 +1,18 @@
 <%= form_for [gallery, image] do |form| %>
-
-  <% if image.errors.any? %>
-    <p>we can not save your image </p>
-
-    <li>
-      <% image.errors.full_messages.each do |error_message| %>
-        <%= error_message %>
-      <% end %>
-    </li>
-  <% end %>
+  <%= render "application/form_errors", object: image %>
 
   <div>
-  <%= form.label :name, "Image name: " %>
-  <%= form.text_field :name %>
+    <%= form.label :name, "Image name: " %>
+    <%= form.text_field :name %>
   </div>
 
   <div>
-  <%= form.label :description, "Image description: " %>
-  <%= form.text_area :description %>
+    <%= form.label :description, "Image description: " %>
+    <%= form.text_area :description %>
   </div>
  
   <div>
-  <%= form.submit "Add Image" %>
+    <%= form.submit "Add Image" %>
   </div>
 
 <% end %>

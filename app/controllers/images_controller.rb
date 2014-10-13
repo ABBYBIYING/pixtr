@@ -23,6 +23,7 @@ class ImagesController < ApplicationController
   def show
     @gallery = find_gallery
     @image = @gallery.images.find(params[:id])
+    @comment =  Comment.new
   end
 
   def edit
@@ -32,10 +33,10 @@ class ImagesController < ApplicationController
 
   def update
     gallery = find_gallery
-    image = Image.find(params[:id])
-    image.update(image_params)
+    @image = Image.find(params[:id])
+    @image.update(image_params)
     if @image.update(image_params)
-      redirect_to @gallery 
+      redirect_to gallery 
     else
       render :edit
     end

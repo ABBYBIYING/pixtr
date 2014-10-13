@@ -1,14 +1,5 @@
-<%= form_for gallery do |form| %> 
-
-  <% if gallery.errors.any? %>
-    <p>we can not save your gallery </p>
-
-    <li>
-      <% gallery.errors.full_messages.each do |error_message| %>
-        <%= error_message %>
-      <% end %>
-    </li>
-  <% end %>
+<%= form_for gallery do |form| %>
+  <%= render "application/form_errors", object: gallery %>
 
   <div><%= form.label :name, "Gallery name: " %>
   <%= form.text_field :name %></div>

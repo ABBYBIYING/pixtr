@@ -1,14 +1,18 @@
 <h1><%= @image.name %></h1>
 <h1><%= @image.description %></h1>
-
 <%= image_tag @image.url, width:"500" %>
+<%= form_for [@image, @comment] do |f| %>
+  <%= f.label :content, "comment" %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
 <div>
-<%= link_to "Create Image", new_gallery_image_path(@gallery) %>
+  <%= link_to "Create Image", new_gallery_image_path(@gallery) %>
 
-<%= link_to "Edit This Image", edit_gallery_image_path(@image, @gallery) %>
+  <%= link_to "Edit This Image", edit_gallery_image_path(@gallery, @image) %>
 
-<%= link_to "Delete This Image", gallery_image_path(@gallery, @image), method: :delete, data: { confirm: 'Are you sure?' } %> 
+  <%= link_to "Delete This Image", gallery_image_path(@gallery, @image), method: :delete, data: { confirm: 'Are you sure?' } %> 
 
-<%= link_to "Index", galleries_path %>
+  <%= link_to "Index", galleries_path %>
 
 </div>
