@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pixtr</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<% if current_user %>
+<h3> welcome <%= current_user_email %></h3>
+<%= link_to "Not you? Sign out!" "/sessions", method: :delete %>
+<%= link_to "Sign up", new_user_path %>
+<%= link_to "Sign in", new_session_path %>
+<%= link_to "Sign out", root_path %>
+
+<% end %>
+<%= yield %>
+</body>
+</html>

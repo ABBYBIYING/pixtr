@@ -1,0 +1,26 @@
+<h1><%= @gallery.name %> (Gallery name)</h1>
+<h1><%= @gallery.description %> (Gallery description)</h1>
+<%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
+<%= link_to "Add Image", new_gallery_image_path(@gallery) %>
+<%= link_to "Delete gallery", @gallery, method: :delete, data: { confirm: "are you sure?"} %>
+<%= link_to "Index", galleries_path %>
+<!-- 
+<form action="/galleries/<%= @gallery.id %> " method="POST">
+<input type="hidden" name="_method" value="Edit"> 
+<input type="submit" value="Edit This Gallery"> 
+
+<form action="/galleries/<%= @gallery.id %> " method="POST">
+<input type="hidden" name="_method" value="Add"> 
+<input type="submit" value="Add Image for This Gallery">
+ -->
+<div>
+  <% @gallery.images.each do |image| %>
+  <div>
+    <%= link_to gallery_image_path(@gallery, image) do %>
+      <%= image_tag image.url, width:"500" %>
+    <% end %>
+<!-- <a href="/galleries/<%= image.gallery_id %>/images/<%= image.id %>"> -->
+  <!-- <img src="<%= image.url %>"> </a> -->
+  </div>
+  <% end %>
+</div>

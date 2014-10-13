@@ -1,0 +1,24 @@
+<%= form_for gallery do |form| %> 
+
+  <% if gallery.errors.any? %>
+    <p>we can not save your gallery </p>
+
+    <li>
+      <% gallery.errors.full_messages.each do |error_message| %>
+        <%= error_message %>
+      <% end %>
+    </li>
+  <% end %>
+
+  <div><%= form.label :name, "Gallery name: " %>
+  <%= form.text_field :name %></div>
+
+  <div><%= form.label :description, "Gallery description: " %>
+  <%= form.text_area :description %></div>
+
+  <div><%= form.label :cover_image %>
+  <%= form.text_field :cover_image %></div> 
+
+  <div><%= form.submit "Edit gallery" %></div>
+  
+<% end %>
