@@ -1,6 +1,5 @@
 <%= form_for [gallery, image] do |form| %>
   <%= render "application/form_errors", object: image %>
-
   <div>
     <%= form.label :name, "Image name: " %>
     <%= form.text_field :name %>
@@ -10,9 +9,22 @@
     <%= form.label :description, "Image description: " %>
     <%= form.text_area :description %>
   </div>
- 
+
   <div>
-    <%= form.submit "Add Image" %>
+    <%= form.label :url, "Image url: " %>
+    <%= form.text_field :url %>
   </div>
 
+  <div>
+    <%= form.label :tag_list %>
+    <%= form.text_field :tag_list %>
+  </div>
+
+  <div>
+  <%= form.collection_check_boxes :group_ids, current_user.groups, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>

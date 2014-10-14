@@ -11,9 +11,14 @@
     <h3> welcome <%= current_user.email %></h3>
     <%= link_to "Not you? Sign out!", "/sign_out", method: :delete %>
   <% else %>  
-    <%= link_to "Sign up", "/sign up" %>
-    <%= link_to "Sign in", "/sign in" %>
+    <%= link_to "Sign up", "/sign_up" %>
+    <%= link_to "Sign in", "/sign_in" %>
   <% end %>
+
+  <% if flash[:notice] %>
+  <div><%= flash[:notice] %></div>
+  <% end %>
+  
   <%= yield %>
 </body>
 </html>

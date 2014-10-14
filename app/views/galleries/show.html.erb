@@ -3,13 +3,10 @@
 <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
 <%= link_to "Add Image", new_gallery_image_path(@gallery) %>
 <%= link_to "Delete gallery", @gallery, method: :delete, data: { confirm: "are you sure?"} %>
-<%= link_to "Index", galleries_path %> 
-<div>
-  <% @gallery.images.each do |image| %>
-    <div>
-      <%= link_to gallery_image_path(@gallery, image) do %>
-        <%= image_tag image.url, width:"500" %>
-      <% end %> 
-    </div>
-  <% end %>
-</div>
+<%= link_to "Index", galleries_path %>
+
+<% @gallery.images.each do |image| %>
+  <div>
+    <%= link_to (image_tag image.url), gallery_image_path(@gallery, image) %>
+  </div>
+<% end %>

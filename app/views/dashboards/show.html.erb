@@ -1,0 +1,33 @@
+
+<h3>Here are images you created.</h3>
+<ul>
+<% current_user.images.each do |image| %>
+  <li>
+    <%= image_tag image.url, width:"100" %>
+  </li>
+  <% end %>
+</ul>
+
+<h3>Here are images you liked.</h3>
+
+<ul>
+<% current_user.liked_images.each do |image| %>
+  <li>
+    <%= image_tag image.url, width: "100" %>
+  </li>
+<% end %>
+</ul>
+
+<%= link_to "Index", galleries_path %>
+
+<h3>Here are the group you are a member of <h3>
+<ul>
+<% current_user.groups.each do |group| %>
+  <li>
+    <%= link_to group.name, group_path(group) %>
+  </li>
+    <% end %>
+</ul>
+
+    <script src="processing-1.0.0.min.js"></script>
+    <canvas data-processing-sources="hello-web.pde"></canvas>

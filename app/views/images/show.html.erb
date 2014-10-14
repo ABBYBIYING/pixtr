@@ -1,18 +1,53 @@
 <h1><%= @image.name %></h1>
 <h1><%= @image.description %></h1>
+
 <%= image_tag @image.url, width:"500" %>
+
+<p>TAGS:</p>
+<ul>
+  <% @image.tags.each do |tag| %>
+    <li><%= link_to tag.name, tag_path(tag.name) %></li>
+  <% end %>
+</ul>
+
+<p>LIKES: <%= @image.likes.count %></p>
+
+<ul>
+  <% @image.groups.each do |group| %>
+    <li><%= group.name %></li>
+  <% end %>
+</ul>
+
+<p>upload by <%= @image.user.email %></p>
+
+<% @image.likes.each do |like| %>
+  <li>
+    <%= like.user.email %>
+  </li>
+<% end %>
+
+<% if current_user.liked_images.include? @image %>
+  <% flash[:notice] = "you have liked this image." %>
+  <%= button_to "unlike", image_like_path(@image), method: :delete %>
+  <% else %>
+  <% flash[:notice] = "you have unliked this image." %>
+  <%= button_to "like this image", image_like_path(@image) %>
+<% end %>
+
+<%= render @image.comments.by_most_recent %>
+
 <%= form_for [@image, @comment] do |f| %>
-  <%= f.label :content, "comment" %>
+  <%= f.label :content, "add comment" %>
   <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>
+
 <div>
   <%= link_to "Create Image", new_gallery_image_path(@gallery) %>
 
   <%= link_to "Edit This Image", edit_gallery_image_path(@gallery, @image) %>
 
-  <%= link_to "Delete This Image", gallery_image_path(@gallery, @image), method: :delete, data: { confirm: 'Are you sure?' } %> 
+  <%= link_to "Delete This Image", gallery_image_path(@gallery, @image), method: :delete, data: { confirm: 'Are you sure?' } %>
 
   <%= link_to "Index", galleries_path %>
-
 </div>

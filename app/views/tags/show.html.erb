@@ -1,0 +1,6 @@
+<h1>Here are the images of <%= @tag  %> </h1>
+<% @images.each do |image| %>
+  <%= link_to [image.gallery, image] do %>
+    <%= image_tag image.url, width:"200" %>
+  <% end %>
+<% end %>

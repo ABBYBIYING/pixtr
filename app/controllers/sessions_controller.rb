@@ -4,8 +4,7 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def create 
-
+  def create
     user = authenticate_session(session_params)
 
     if sign_in(user)
@@ -15,7 +14,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy 
+  def destroy
     sign_out
 
     redirect_to root_path

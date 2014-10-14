@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def create
     @user = sign_up(user_params)
 
@@ -15,7 +19,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
-  
+
   private
 
   def user_params

@@ -1,0 +1,5 @@
+<h1>hello <%= @user.email %></h1>
+<% @user.images.each do |image| %>
+  <%= link_to [image, gallery] %>
+    <%= image_tag image.url %>
+<% end %>
