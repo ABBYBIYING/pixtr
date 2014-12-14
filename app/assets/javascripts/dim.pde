@@ -1,7 +1,7 @@
 int dim;
 
 void setup() {
-  size(1024, 360);
+  size(900, 360);
   dim = width/2;
   background(0);
   colorMode(HSB, 360, 100, 100);
