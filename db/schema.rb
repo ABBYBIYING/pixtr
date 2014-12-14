@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 20141016203956) do
 
   create_table "galleries", force: true do |t|
     t.string   "name"
+    t.string   "cover_image"
     t.text     "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "cover_image"
   end
 
   create_table "group_memberships", force: true do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20141016203956) do
   create_table "groups", force: true do |t|
     t.string   "name"
     t.string   "description"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,9 +69,9 @@ ActiveRecord::Schema.define(version: 20141016203956) do
     t.text     "description"
     t.string   "url"
     t.integer  "gallery_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree

@@ -1,7 +1,12 @@
-<h1><%= @image.name %></h1>
-<h1><%= @image.description %></h1>
+<p><%= link_to "Add an image", new_gallery_image_path(@gallery) %></p>
+<p><%= link_to "Edit this image", edit_gallery_image_path(@gallery, @image) %></p>
+<p><%= link_to "Delete this image", gallery_image_path(@gallery, @image),
+    method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
-<%= image_tag @image.url, width:"500" %>
+<h1>name: <%= @image.name %></h1>
+<h1>description: <%= @image.description %></h1>
+
+<%= image_tag @image.url, width:"800" %>
 
 <p>TAGS:</p>
 <ul>
@@ -27,27 +32,17 @@
 <% end %>
 
 <% if current_user.liked_images.include? @image %>
-  <% flash[:notice] = "you have liked this image." %>
+  <% flash[:notice] = "You have liked this image." %>
   <%= button_to "unlike", image_like_path(@image), method: :delete %>
-  <% else %>
-  <% flash[:notice] = "you have unliked this image." %>
+<% else %>
+  <% flash[:notice] = "You have unliked this image." %>
   <%= button_to "like this image", image_like_path(@image) %>
 <% end %>
 
 <%= render @image.comments.by_most_recent %>
 
 <%= form_for [@image, @comment] do |f| %>
-  <%= f.label :content, "add comment" %>
+  <%= f.label :content, "Add comment: " %>
   <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>
-
-<div>
-  <%= link_to "Create Image", new_gallery_image_path(@gallery) %>
-
-  <%= link_to "Edit This Image", edit_gallery_image_path(@gallery, @image) %>
-
-  <%= link_to "Delete This Image", gallery_image_path(@gallery, @image), method: :delete, data: { confirm: 'Are you sure?' } %>
-
-  <%= link_to "Index", galleries_path %>
-</div>

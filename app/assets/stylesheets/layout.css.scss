@@ -1,5 +1,8 @@
 body {
   background: linear-gradient(pink, orange, green);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
   color: white;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
   font-size: 15px;
@@ -24,7 +27,9 @@ a:visited {
 }
 
 a:hover {
-background: white;
   color: #FF00FF;
 }
 
+.session {
+
+}

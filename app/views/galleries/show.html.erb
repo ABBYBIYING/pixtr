@@ -1,12 +1,12 @@
-<h1><%= @gallery.name %> (Gallery name)</h1>
-<h1><%= @gallery.description %> (Gallery description)</h1>
-<%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
-<%= link_to "Add Image", new_gallery_image_path(@gallery) %>
-<%= link_to "Delete gallery", @gallery, method: :delete, data: { confirm: "are you sure?"} %>
-<%= link_to "Index", galleries_path %>
+<p><%= link_to "Edit this gallery", edit_gallery_path(@gallery) %></p>
+<p><%= link_to "Add an image", new_gallery_image_path(@gallery) %></p>
+<p><%= link_to "Delete this gallery", @gallery, method: :delete, data: { confirm: "are you sure?"} %></p>
+
+<h1>Gallery name: <%= @gallery.name %></h1>
+<h1>Gallery description: <%= @gallery.description %></h1>
 
 <% @gallery.images.each do |image| %>
   <div>
-    <%= link_to (image_tag image.url), gallery_image_path(@gallery, image) %>
+    <%= link_to (image_tag image.url, width:"500"), gallery_image_path(@gallery, image) %>
   </div>
 <% end %>

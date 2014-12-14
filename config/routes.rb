@@ -7,11 +7,9 @@ Rails.application.routes.draw do
     root "dashboards#show", as: :dashboard
   end
 
-  root "galleries#index"
-
-  get "/sign_up" => "users#new"
-  get "/sign_in" => "sessions#new"
-  delete "/sign_out" => "sessions#destroy"
+  constraints Monban::Constraints::SignedOut.new do
+    root "sessions#new"
+  end
 
   resources :galleries do
     resources :images, except: [:index]
@@ -23,8 +21,8 @@ Rails.application.routes.draw do
   end
 
   resources :tags, only: [:show]
-  resource :session, only: [:create]
-  resources :users, only: [:create]
+  resource :session, only: [:new, :create, :destroy]
+  resources :users, except: [:destroy]
   resources :groups, only: [:index, :new, :create, :show, :destroy] do
     member do
       post "join" => "group_memberships#create"

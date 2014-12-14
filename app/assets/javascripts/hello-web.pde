@@ -1,7 +1,21 @@
-1 void setup() {
-2   size(200, 200);
-3   background(100);
-4   stroke(255);
-5   ellipse(50, 50, 25, 25);
-6   println("hello web!");
-7 }
+int barWidth = 20;
+int lastBar = -1;
+
+void setup()
+{
+  size(1024, 360);
+  colorMode(HSB, height, height, height);
+  noStroke();
+  background(0);
+}
+
+void draw()
+{
+  int whichBar = mouseX / barWidth;
+  if (whichBar != lastBar) {
+    int barX = whichBar * barWidth;
+    fill(mouseY, height, height);
+    rect(barX, 0, barWidth, height);
+    lastBar = whichBar;
+  }
+}

@@ -1,15 +1,12 @@
-<h1>HELLO</h1>
+<h1>HELLO</h1></P>
+
 <ul>
   <% @galleries.each do |gallery| %>
     <li>
-      <%= link_to gallery.name, gallery %>
+      <h2>Gallery: <%= link_to gallery.name, gallery %></h2>
       <div>
         <%= image_tag gallery.cover_image, width:"500" %>
       </div>
     </li>
   <% end %>
-
-  <%= link_to "New Gallery", new_gallery_path %>
-  <%= link_to "New Group", new_group_path %>
-  <%= link_to "Groups", groups_path %>
 </ul>

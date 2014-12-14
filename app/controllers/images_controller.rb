@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
-  before_action :require_login, except: :show
+  before_action :require_login
+  before_filter :require_permission, only: [:edit, :destroy]
 
   def new
     find_gallery
@@ -62,5 +63,11 @@ class ImagesController < ApplicationController
 
   def find_gallery
     @gallery = Gallery.find(params[:gallery_id])
+  end
+
+  def require_permission
+    if current_user != Image.find(params[:id]).user
+      redirect_to root_path
+    end
   end
 end

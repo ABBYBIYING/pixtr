@@ -1,4 +1,7 @@
  class GalleriesController < ApplicationController
+  before_action :require_login, except: [:index]
+  before_filter :require_permission, only: [:edit, :destroy]
+
   def index
     @galleries = Gallery.all
   end
@@ -7,19 +10,19 @@
     @gallery = Gallery.new
   end
 
-  def show
-    find_gallery
-  end
-
-
   def create
     @gallery = Gallery.new(gallery_params)
+    @gallery.user = current_user
 
     if @gallery.save
       redirect_to @gallery
     else
       render :new
     end
+  end
+
+  def show
+    find_gallery
   end
 
   def edit
@@ -51,6 +54,12 @@
 
   def gallery_params
     params.require(:gallery).permit(:name, :description, :cover_image)
+  end
+
+  def require_permission
+    if current_user != Gallery.find(params[:id]).user
+      redirect_to root_path
+    end
   end
 end
 

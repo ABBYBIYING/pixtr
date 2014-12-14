@@ -2,4 +2,5 @@
   <p>created by <%= comment.user.email %></p>
   <p><%= comment.content %></p>
   <p>created <%= time_ago_in_words(comment.created_at) %> ago</p>
+     at <%= comment.created_at.to_s %></p>
 </div>
