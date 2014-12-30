@@ -1,7 +1,7 @@
-<p><%= link_to "Add an image", new_gallery_image_path(@gallery) %></p>
-<p><%= link_to "Edit this image", edit_gallery_image_path(@gallery, @image) %></p>
-<p><%= link_to "Delete this image", gallery_image_path(@gallery, @image),
-    method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<b><%= link_to "Add an image", new_gallery_image_path(@gallery) %></b>
+<b><%= link_to "Edit this image", edit_gallery_image_path(@gallery, @image) %></b>
+<b><%= link_to "Delete this image", gallery_image_path(@gallery, @image),
+    method: :delete, data: { confirm: 'Are you sure?' } %></b>
 
 <%= render @image %>
 
