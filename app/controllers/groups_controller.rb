@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
   before_filter :require_permission, only: [:edit, :destroy]
+
   def index
     @groups = Group.all
   end
@@ -9,15 +10,20 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(group_params)
-    @group.save
-    @group.add_member(current_user)
+    @group = current_user.groups.new(group_params)
 
-    redirect_to group_path(@group)
+    if @group.save
+      @group.add_member(current_user)
+
+      redirect_to @group
+    else
+      render :new
+    end
   end
 
   def show
     @group = Group.find(params[:id])
+    @images = @group.images.includes(:gallery)
   end
 
   def destroy
@@ -31,7 +37,10 @@ class GroupsController < ApplicationController
 private
 
   def group_params
-    params.require(:group).permit(:name, :description)
+    params.require(:group).permit(
+      :name,
+      :description
+    )
   end
 
   def require_permission

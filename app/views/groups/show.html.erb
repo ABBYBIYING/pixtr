@@ -19,7 +19,4 @@
 
 <%= link_to "Delete this group", group_path(@group), method: :delete %></h2>
 
-<h3>Group Images</h3>
-<% @group.images.each do |image| %>
-  <%= image_tag image.url, width:"500" %>
-<% end %>
+<%= render @images %>

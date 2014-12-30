@@ -18,7 +18,7 @@ a:active {
 }
 
 a:link {
-  color: #400D12;
+  color: white;
   text-decoration: none;
 }
 
@@ -31,12 +31,18 @@ a:hover {
 }
 
 b {
+  font-size: 20px;
   padding-right: 30px;
   padding-top: 20px;
 }
 
 canvas {
   padding: 7px;
+}
+
+.footer {
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 menu {
