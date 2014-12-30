@@ -1,12 +1,2 @@
 <h1>HELLO</h1></P>
-
-<ul>
-  <% @galleries.each do |gallery| %>
-    <li>
-      <h2>Gallery: <%= link_to gallery.name, gallery %></h2>
-      <div>
-        <%= image_tag gallery.cover_image, width:"500" %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<%= render @galleries.by_most_recent %>

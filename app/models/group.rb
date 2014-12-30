@@ -14,4 +14,8 @@ class Group < ActiveRecord::Base
   def remove_member(user)
     users.delete(user)
   end
+
+  def self.by_most_recent
+    order(created_at: :desc)
+  end
 end

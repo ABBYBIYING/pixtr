@@ -1,0 +1,22 @@
+<h1>Welcome!</h1>
+<h2>Group name: <%= group.name %></h2>
+<h2>Group description: <%= group.description %></h2>
+
+<% if group.users.include? current_user %>
+  <%= button_to "Leave this group", leave_group_path(group), method: :delete %></h2>
+<% else %>
+  <h2><%= button_to "Join this group", join_group_path(group), method: :post %></h2>
+<% end %>
+
+<% if group.users.include? current_user %>
+  <p>You are in this group.</p>
+<% end %>
+
+<h3>Group members: </h3>
+<% group.users.each do |user| %>
+  <p><%= user.email %></p>
+<% end %>
+
+<%= link_to "Delete this group", group, method: :delete %></h2>
+
+<%= render @images.by_most_recent %>

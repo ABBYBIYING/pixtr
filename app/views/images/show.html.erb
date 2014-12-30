@@ -4,3 +4,9 @@
     method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
 <%= render @image %>
+
+<%= form_for [@image, @comment] do |f| %>
+  <%= f.label :content, "Add comment: " %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

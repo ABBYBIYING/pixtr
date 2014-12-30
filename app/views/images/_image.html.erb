@@ -1,7 +1,6 @@
 <h1>name: <%= image.name %></h1>
 <h1>description: <%= image.description %></h1>
-
-<%= image_tag image.url, width:"800" %>
+<%= link_to (image_tag image.url, width:"600"), gallery_image_path(image.gallery, image) %>
 
 <p>TAGS:</p>
 <ul>
@@ -35,9 +34,3 @@
 <% end %>
 
 <%= render image.comments.by_most_recent %>
-
-<%= form_for [@image, @comment] do |f| %>
-  <%= f.label :content, "Add comment: " %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
-<% end %>

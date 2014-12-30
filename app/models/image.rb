@@ -12,4 +12,8 @@ class Image < ActiveRecord::Base
   validates :name, presence: true
   validates :description, presence: true, uniqueness: true
   validates :url, presence: true, uniqueness: true
+
+  def self.by_most_recent
+    order(created_at: :desc)
+  end
 end
