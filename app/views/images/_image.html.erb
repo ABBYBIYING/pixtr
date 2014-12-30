@@ -1,0 +1,43 @@
+<h1>name: <%= image.name %></h1>
+<h1>description: <%= image.description %></h1>
+
+<%= image_tag image.url, width:"800" %>
+
+<p>TAGS:</p>
+<ul>
+  <% image.tags.each do |tag| %>
+    <li><%= link_to tag.name, tag_path(tag.name) %></li>
+  <% end %>
+</ul>
+
+<p>LIKES: <%= image.likes.count %></p>
+
+<ul>
+  <% image.groups.each do |group| %>
+    <li><%= group.name %></li>
+  <% end %>
+</ul>
+
+<p>upload by <%= image.user.email %></p>
+
+<% image.likes.each do |like| %>
+  <li>
+    <%= like.user.email %>
+  </li>
+<% end %>
+
+<% if current_user.liked_images.include? @image %>
+  <% flash[:notice] = "You have liked this image." %>
+  <%= button_to "unlike", image_like_path(image), method: :delete %>
+<% else %>
+  <% flash[:notice] = "You have unliked this image." %>
+  <%= button_to "like this image", image_like_path(image) %>
+<% end %>
+
+<%= render image.comments.by_most_recent %>
+
+<%= form_for [@image, @comment] do |f| %>
+  <%= f.label :content, "Add comment: " %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
