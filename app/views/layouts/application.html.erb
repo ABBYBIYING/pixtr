@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Funpic</title>
+  <title>MyPic</title>
   <%= stylesheet_link_tag 'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
   <% if signed_in? %>
     <%= link_to "Sign out 退出", session_path, method: :delete %>
   <% else %>
-    <%= link_to "Sign in 登录", new_session_path %>
     <div class="sign-up">Not a User 还不是用户? <%= link_to "Sign Up 来登记吧", new_user_path %></div>
   <% end %>
 
-  <p>今天是Today is <%= Time.now.strftime("%m/%d/%Y") %></p>
-  <p><%= link_to "Gallery index", galleries_path %></p>
-  <P><%= link_to "Groups index", groups_path %></P>
-  <p><%= link_to "Go to my page", root_path %></p>
-  <P><%= link_to "New gallery", new_gallery_path %></P>
-  <P><%= link_to "New group", new_group_path %></P>
-  <%= yield %>
+   <div class="menu">
+     <b><%= link_to "Gallery index", galleries_path %></b>
+     <b><%= link_to "Groups index", groups_path %></b>
+     <b><%= link_to "Go to my page", root_path %></b>
+     <b><%= link_to "New gallery", new_gallery_path %></b>
+     <b><%= link_to "New group", new_group_path %></b>
+   </div>
+    <%= yield %>
 </body>
 </html>
