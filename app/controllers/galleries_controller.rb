@@ -11,12 +11,12 @@
   end
 
   def create
-    @gallery = current_user.galleries.new(gallery_params)
+    @gallery = Gallery.new(gallery_params)
 
     if @gallery.save
       redirect_to @gallery
     else
-      redirect_to root_path
+      render :new
     end
   end
 
@@ -39,7 +39,7 @@
   end
 
   def destroy
-    gallery = Gallery.find(params[:id])
+    gallery = find_gallery
     gallery.destroy
 
     redirect_to galleries_path
