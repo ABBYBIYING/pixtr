@@ -1,11 +1,12 @@
 <%= link_to gallery do%>
   <h1>Gallery name: <%= gallery.name %></h1>
   <h2>Gallery description: <%= gallery.description %></h2>
+  <p><%= image_tag gallery.cover_image %></p>
 
 <% end %>
 
 <% gallery.images.each do |image| %>
   <div>
-    <%= link_to (image_tag image.url, width:"300"), gallery_image_path(gallery, image) %>
+    <%= link_to (image_tag image.url), gallery_image_path(gallery, image) %>
   </div>
 <% end %>

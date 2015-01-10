@@ -11,13 +11,12 @@
   end
 
   def create
-    @gallery = Gallery.new(gallery_params)
-    @gallery.user = current_user
+    @gallery = current_user.galleries.new(gallery_params)
 
     if @gallery.save
       redirect_to @gallery
     else
-      render :new
+      redirect_to root_path
     end
   end
 
