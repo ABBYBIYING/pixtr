@@ -1,7 +1,3 @@
-<h1>All groups: </h1>
-<ul>
-  <% @groups.each do |group| %>
-    <li><%= link_to group.name, group %>
-      <i><%= group.description %></i></li>
-  <% end %>
-</ul>
+<b><%= link_to "New group", new_group_path %></b>
+<h3>Welcome to Groups!</h3>
+<%= render @groups %>

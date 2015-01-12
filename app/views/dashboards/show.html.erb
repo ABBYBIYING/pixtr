@@ -1,10 +1,11 @@
-<canvas data-processing-sources=<%= asset_path 'hello-web.pde' %>></canvas>
+<b><%= link_to "New gallery", new_gallery_path %></b>
+<b><%= link_to "New group", new_group_path %></b>
 
-<%= render(@user.images.by_most_recent) || "<p>No images yet.</p>".html_safe %>
+<%= render(@user.images.by_most_recent) || "<p>No images yet.</p>".html_safe %><hr>
 
-<%= render(@user.groups.by_most_recent) || "<p>No groups yet.</p>".html_safe %>
+<%= render(@user.groups.by_most_recent) || "<p>No groups yet.</p>".html_safe %><hr>
 
-<%= render(@user.comments.by_most_recent) || "<p>No comments yet.</p>".html_safe %>
+<%= render(@user.comments.by_most_recent) || "<p>No comments yet.</p>".html_safe %><hr>
 
 <% if current_user.liked_images.present? %>
   <h3> here are the images you like:</h3>

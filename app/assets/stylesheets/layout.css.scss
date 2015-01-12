@@ -7,7 +7,7 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: white;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
   height: 100vh;
   padding: 7px;
@@ -35,9 +35,13 @@ a:hover {
 }
 
 b {
-  font-size: 17px;
+  font-size: 30px;
   padding-right: 25px;
   padding-top: 20px;
+}
+
+.container {
+  margin: 4em auto;
 }
 
 canvas {
@@ -45,10 +49,23 @@ canvas {
 }
 
 .footer {
-  margin-bottom: 10px;
+  margin: 10em;
   text-align: center;
 }
 
-menu {
-  padding-top: 20px;
+.menu {
+  margin: 3em auto;
+  b {
+    font-size: 30px;
+    padding-right: 30px;
+  }
+}
+
+input {
+  font-size: 20px;
+  height: 30px;
+}
+
+hr {
+  color: white;
 }
