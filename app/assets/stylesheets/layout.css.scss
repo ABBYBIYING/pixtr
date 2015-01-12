@@ -2,21 +2,6 @@ img {
   width:300px;
 }
 
-body {
-  background: linear-gradient(pink, orange, green);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color: white;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 15px;
-  height: 100vh;
-  padding: 7px;
-  line-height: 1.5;
-  margin: 4em;
-  padding-top: 0;
-  z-index: 1001;
-}
-
 a:active {
   color: #99FF00;
 }
@@ -34,14 +19,37 @@ a:hover {
   color: #FF00FF;
 }
 
+a{
+  font-size:  30px;
+  padding: 20px;
+}
+
+body {
+  background: linear-gradient(pink, orange, green);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  height: 100vh;
+  padding: 7px;
+  line-height: 1.5;
+  margin: 4em;
+  padding-top: 0;
+  z-index: 1001;
+}
+
 b {
   font-size: 30px;
   padding-right: 25px;
   padding-top: 20px;
 }
 
+.welcome {
+  font-size: 30px;
+}
+
 .container {
-  margin: 4em auto;
+  margin: 0 auto;
 }
 
 canvas {
@@ -54,7 +62,11 @@ canvas {
 }
 
 .menu {
-  margin: 3em auto;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  a {
+    padding-right: 20px;
+  }
   b {
     font-size: 30px;
     padding-right: 30px;
@@ -73,6 +85,7 @@ hr {
 .title {
   font-size: 200px;
   text-align: center;
+  padding:-10px;
 }
 
 .description {

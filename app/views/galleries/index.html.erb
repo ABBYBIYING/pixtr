@@ -1,3 +1,5 @@
-<b><%= link_to "New gallery", new_gallery_path %></b>
-<h2>Welcome to Galleries!</h2>
+<div class="welcome">
+  <%= link_to "New gallery", new_gallery_path %>
+  <p>Welcome to Galleries!</p>
+</div>
 <%= render @galleries.by_most_recent %>
