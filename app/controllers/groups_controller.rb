@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
- def create
+  def create
     @group = Group.create(group_params)
     @group.add_member(current_user)
 
@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = current_user.groups.find(params[:id])
+    @group = Group.find(params[:id])
     @images = @group.images.includes(:gallery)
   end
 
