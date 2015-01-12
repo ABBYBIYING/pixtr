@@ -4,6 +4,7 @@ class Group < ActiveRecord::Base
   has_many :users, through: :group_memberships
   has_and_belongs_to_many :images, through: :group_images
   has_many :group_images
+  belongs_to :user
 
   validates :name, presence: true
 

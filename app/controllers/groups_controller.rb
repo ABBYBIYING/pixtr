@@ -9,12 +9,11 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
-  def create
-    @group = current_user.groups.new(group_params)
+ def create
+    @group = Group.create(group_params)
+    @group.add_member(current_user)
 
     if @group.save
-      @group.add_member(current_user)
-
       redirect_to @group
     else
       render :new
@@ -22,13 +21,13 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
+    @group = current_user.groups.find(params[:id])
     @images = @group.images.includes(:gallery)
   end
 
   def destroy
-    @group = Group.find(params[:id])
-    @group.destroy
+    group = Group.find(params[:id])
+    group.destroy
     flash[:notice] = "left group."
 
     redirect_to groups_path

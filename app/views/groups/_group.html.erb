@@ -16,7 +16,4 @@
 <% group.users.each do |user| %>
   <p><%= user.email %></p>
 <% end %>
-
-<%= link_to "Delete this group", group, method: :delete %></h2>
-
-<%= render @images.by_most_recent %>
+<%= render group.images %>
