@@ -1,3 +1,9 @@
-<%= render @group %>
+<div class="group">
+  <%= render @group %>
 
-<div class="welcome"><%= link_to "Delete this group", group_path(@group), method: :delete %></div>
+  <div class="welcome">
+    <%= link_to "Edit", edit_group_path(@group) %>
+
+    <%= link_to "Delete", @group, method: :delete, data: { confirm: "are you sure?"} %>
+  </div>
+</div>

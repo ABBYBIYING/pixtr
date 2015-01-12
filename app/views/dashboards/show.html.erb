@@ -1,5 +1,9 @@
-<b><%= link_to "New gallery", new_gallery_path %></b>
-<b><%= link_to "New group", new_group_path %></b>
+<div class="new">
+  <div class="welcome">
+    <%= link_to "New gallery", new_gallery_path %>
+    <%= link_to "New group", new_group_path %>
+  </div>
+</div>
 
 <%= render(@user.images.by_most_recent) || "<p>No images yet.</p>".html_safe %><hr>
 

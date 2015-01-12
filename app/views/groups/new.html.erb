@@ -1,16 +1,5 @@
-<div class="welcome">New Group!</div>
-<%= form_for @group do |f| %>
-  <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+<div class="group">
+  <%= render "form", group: @group %>
+</div>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <%= f.submit %>
-<% end %>
 <canvas data-processing-sources=<%= asset_path 'wave.pde' %></canvas>
-

@@ -21,12 +21,22 @@ class GroupsController < ApplicationController
   end
 
   def show
-    @group = Group.find(params[:id])
-    @images = @group.images.includes(:gallery)
+    find_group
+  end
+
+  def edit
+    find_group
+  end
+
+  def update
+    find_group
+    @group.update(group_params)
+
+    redirect_to @group
   end
 
   def destroy
-    group = Group.find(params[:id])
+    group = find_group
     group.destroy
     flash[:notice] = "left group."
 
@@ -35,10 +45,15 @@ class GroupsController < ApplicationController
 
 private
 
+  def find_group
+    @group = Group.find(params[:id])
+  end
+
   def group_params
     params.require(:group).permit(
       :name,
-      :description
+      :description,
+      :group_image
     )
   end
 end

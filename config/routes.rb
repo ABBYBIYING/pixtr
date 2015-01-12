@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   resources :tags, only: [:show]
   resource :session, only: [:new, :create, :destroy]
   resources :users, except: [:destroy]
-  resources :groups, only: [:index, :new, :create, :show, :destroy] do
+  resources :groups do
     member do
       post "join" => "group_memberships#create"
       delete "leave" => "group_memberships#destroy"

@@ -63,7 +63,7 @@ canvas {
 }
 
 .menu {
-  margin-top: 1.5em;
+  margin-top: -10px;
   margin-bottom: 1.5em;
   a {
     padding-right: 20px;
@@ -72,11 +72,18 @@ canvas {
     font-size: 30px;
     padding-right: 30px;
   }
+  float:right;
 }
 
 input {
+  color: green;
   font-size: 20px;
   height: 30px;
+}
+
+.new {
+  margin-top: -10px;
+  margin-bottom: 30px;
 }
 
 hr {
@@ -91,4 +98,32 @@ hr {
 
 .description {
   font-size: 40px;
+}
+
+.sign-in-out {
+  margin-left: -21px;
+  margin-top: -48px;
+  margin-bottom: 30px;
+}
+
+.welcome {
+  a {
+    margin-left: -20px;
+  }
+}
+
+.new-gallery {
+  margin-top: 80px;
+}
+
+.group {
+  margin-top: 7em;
+}
+
+.gallery {
+  margin-top: 7em;
+}
+
+.image {
+  margin-top: 7em;
 }

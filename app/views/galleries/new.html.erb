@@ -1,3 +1,5 @@
-<div class="welcome">New Gallery!<%= @gallery.name %></div>
-<%= render "form", gallery: @gallery %>
+<div class="gallery">
+  <div class="welcome">New Gallery!<%= @gallery.name %></div>
+  <%= render "form", gallery: @gallery %>
+</div>
 <canvas data-processing-sources=<%= asset_path 'dim.pde' %></canvas>

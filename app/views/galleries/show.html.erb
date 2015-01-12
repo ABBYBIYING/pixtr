@@ -1,7 +1,7 @@
+<%= render @gallery %>
 <div class="welcome">
-  <%= link_to "Edit this gallery", edit_gallery_path(@gallery) %>
+  <%= link_to "Edit", edit_gallery_path(@gallery) %>
+  <%= link_to "Delete", @gallery, method: :delete, data: { confirm: "are you sure?"} %>
   <%= link_to "Add an image", new_gallery_image_path(@gallery) %>
-  <%= link_to "Delete this gallery", @gallery, method: :delete, data: { confirm: "are you sure?"} %>
 </div>
 
-<%= render @gallery %>
