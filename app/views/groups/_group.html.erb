@@ -1,6 +1,4 @@
-<h1>Welcome!</h1>
-<h2>Group name: <%= group.name %></h2>
-<h2>Group description: <%= group.description %></h2>
+<h2>Group: <%= group.name %>, description: <%= group.description %></h2>
 
 <% if group.users.include? current_user %>
   <%= button_to "Leave this group", leave_group_path(group), method: :delete %></h2>
@@ -17,3 +15,4 @@
   <p><%= user.email %></p>
 <% end %>
 <%= render group.images %>
+<hr>

@@ -3,26 +3,32 @@
 <head>
   <title>MyPictures</title>
   <%= stylesheet_link_tag 'application', media: 'all'%>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 
 <body>
-  <% if signed_in? %>
-    <%= link_to "Sign out 退出", session_path, method: :delete %>
-  <% else %>
-    <div class="sign-up">Not a User 还不是用户? <%= link_to "Sign Up 来登记吧", new_user_path %></div>
-  <% end %>
+  <div class="sign-in-out">
+    <% if signed_in? %>
+      <%= link_to "Sign out", session_path, method: :delete %>
+    <% else %>
+      <b><%= link_to "Sign Up", new_user_path %></b><br>
+      <b><%= link_to "Sign in", new_session_path %></b>
+    <% end %>
+  </div>
 
    <div class="menu">
-     <b><%= link_to "Gallery index", galleries_path %></b>
-     <b><%= link_to "Groups index", groups_path %></b>
-     <b><%= link_to "Go to my page", root_path %></b>
-     <b><%= link_to "New gallery", new_gallery_path %></b>
-     <b><%= link_to "New group", new_group_path %></b>
+     <b><%= link_to "Galleries", galleries_path %></b>
+     <b><%= link_to "Groups", groups_path %></b>
+     <b><%= link_to "Settings", root_path %></b>
      <b><a href="mailto:abbyzhangnyc@gmail.com">Contact</a></b>
    </div>
-  <%= yield %>
-  <p class="footer">(c) 2014, Abby Biying Zhang</p>
+
+  <section class="container">
+    <%= yield %>
+  </section>
+
+  <p class="footer">Copyright© Abby Biying Zhang</p>
 </body>
 </html>

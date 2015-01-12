@@ -1,0 +1,22 @@
+@media only screen and (max-device-width: 320px) {
+  .sign-in-out a {
+    font-size: 40px;
+  }
+
+  .menu {
+    margin: 3em auto;
+    b {
+      font-size: 40px;
+      padding-right: 30px;
+    }
+  }
+
+  .footer {
+    margin-top: 20em;
+  }
+
+  input {
+    font-size: 8px;
+    height: 20px;
+  }
+}

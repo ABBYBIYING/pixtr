@@ -1,5 +1,4 @@
-<h1>name: <%= image.name %></h1>
-<h1>description: <%= image.description %></h1>
+<h2>Image: <%= image.name %>, description: <%= image.description %></h2>
 <%= link_to (image_tag image.url, width:"600"), gallery_image_path(image.gallery, image) %>
 
 <p>TAGS:</p>
