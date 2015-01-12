@@ -1,5 +1,5 @@
 class GroupsController < ApplicationController
-  before_filter :require_permission, only: [:edit, :destroy]
+  before_action :require_login, except: [:index, :show]
 
   def index
     @groups = Group.all
@@ -40,11 +40,5 @@ private
       :name,
       :description
     )
-  end
-
-  def require_permission
-    if current_user != Group.find(params[:id]).user
-      redirect_to root_path
-    end
   end
 end
