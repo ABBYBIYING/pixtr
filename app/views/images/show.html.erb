@@ -1,16 +1,15 @@
 <div class="image">
   <%= render @image %>
-</div>
 
-<div class="welcome">
-  <%= link_to "Add an image", new_gallery_image_path(@gallery) %>
-  <%= link_to "Edit", edit_gallery_image_path(@gallery, @image) %>
-  <%= link_to "Delete", gallery_image_path(@gallery, @image),
-    method: :delete, data: { confirm: 'Are you sure?' } %>
+  <div class="welcome">
+    <%= link_to "Edit", edit_gallery_image_path(@gallery, @image) %>
+    <%= link_to "Delete", gallery_image_path(@gallery, @image),
+      method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+  <br><br>
+  <%= form_for [@image, @comment] do |f| %>
+    <%= f.label :content, "Add comment: " %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
 </div>
-<br><br>
-<%= form_for [@image, @comment] do |f| %>
-  <%= f.label :content, "Add comment: " %>
-  <%= f.text_area :content %>
-  <%= f.submit %>
-<% end %>

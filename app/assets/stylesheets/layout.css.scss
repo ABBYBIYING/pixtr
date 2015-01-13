@@ -116,17 +116,11 @@ hr {
   margin-top: 80px;
 }
 
-.group {
-  margin-top: 7em;
-}
-
 .gallery {
   margin-top: 7em;
-
   .welcome p {
     font-size: 60px;
   }
-
   a {
     border-radius: 25px;
     background-color: green;
@@ -137,6 +131,15 @@ hr {
 
 .image {
   margin-top: 7em;
+  .welcome {
+    a {
+      border-radius: 25px;
+      background-color: green;
+      padding: 10px;
+      margin-left: 10px;
+      margin-top: 20px;
+    }
+  }
 }
 
 .welcome-message {
@@ -148,11 +151,9 @@ hr {
 
 .group {
   margin-top: 7em;
-
   .welcome p {
     font-size: 60px;
   }
-
   a {
     border-radius: 25px;
     background-color: green;
@@ -172,4 +173,3 @@ hr {
     }
   }
 }
-
