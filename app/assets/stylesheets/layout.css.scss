@@ -63,7 +63,7 @@ canvas {
 }
 
 .menu {
-  margin-top: -10px;
+  margin-top: -78px;
   margin-bottom: 1.5em;
   a {
     padding-right: 20px;
@@ -77,7 +77,7 @@ canvas {
 
 input {
   color: green;
-  font-size: 20px;
+  font-size: 16px;
   height: 30px;
 }
 
@@ -122,8 +122,54 @@ hr {
 
 .gallery {
   margin-top: 7em;
+
+  .welcome p {
+    font-size: 60px;
+  }
+
+  a {
+    border-radius: 25px;
+    background-color: green;
+    padding: 10px;
+    margin-left: 10px;
+  }
 }
 
 .image {
   margin-top: 7em;
 }
+
+.welcome-message {
+  margin-top: 7em;
+  .welcome p {
+    font-size: 60px;
+  }
+}
+
+.group {
+  margin-top: 7em;
+
+  .welcome p {
+    font-size: 60px;
+  }
+
+  a {
+    border-radius: 25px;
+    background-color: green;
+    padding: 10px;
+    margin-left: 10px;
+  }
+}
+
+.show {
+  .welcome {
+    a {
+      border-radius: 25px;
+      background-color: green;
+      padding: 10px;
+      margin-left: 10px;
+      margin-top: 20px;
+    }
+  }
+}
+
